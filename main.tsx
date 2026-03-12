@@ -157,7 +157,10 @@ function usePersist<T>(key:string,init:T){
   return [s,set] as const;
 }
 
-function useT(lang:Language){ return (k:TKey)=>translations[lang][k]; }
+function useT(lang:Language){
+  const active = translations[lang] ?? translations.en;
+  return (k:TKey)=>active[k];
+}
 
 function copyText(v:string){ navigator.clipboard?.writeText(v).catch(()=>{}); }
 
