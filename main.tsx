@@ -1,3 +1,5 @@
+import { createRoot } from "react-dom/client";
+import "./index.css";
 import { useEffect, useMemo, useState } from "react";
 import type { ButtonHTMLAttributes, ChangeEvent, InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
 import { motion } from "framer-motion";
@@ -2076,3 +2078,6 @@ export function App(){
       onSignIn={handleSignIn} onSignUp={handleSignUp} onToggle={()=>setAuthMode(m=>m==="signin"?"signup":"signin")}/>
   </div>;
 }
+
+
+createRoot(document.getElementById("root")!).render(<App />);
